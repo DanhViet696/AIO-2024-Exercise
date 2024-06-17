@@ -1,13 +1,22 @@
-num_list = [3, 4, 5, 1, -44 , 5 ,10, 12 ,33, 1]
-k = 3
-result = []
-sub_list = []
+def count_letters(word):
+    # Khởi tạo một dictionary để lưu kết quả
+    letter_count = {}
 
-for element in num_list:
-    sub_list.append(element)
-    if len(sub_list) == k:
-        result.append(max(sub_list))
-        del sub_list[0]
+    # Đưa tất cả các ký tự trong từ về chữ thường để đếm đúng
+    word = word.lower()
 
+    # Đếm số lần xuất hiện của từng ký tự trong từ
+    for char in word:
+        if char.isalpha():  # Chỉ xét các ký tự là chữ cái
+            if char in letter_count:
+                letter_count[char] += 1
+            else:
+                letter_count[char] = 1
+
+    return letter_count
+
+# Ví dụ sử dụng
+word = "Hello, World!"
+result = count_letters(word)
 print(result)
 
