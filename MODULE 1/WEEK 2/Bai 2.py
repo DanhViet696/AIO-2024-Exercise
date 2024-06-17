@@ -1,12 +1,17 @@
-num_list = [3, 4, 5, 1, -44 , 5 ,10, 12 ,33, 1]
-k = 3
-result = []
-sub_list = []
+def count_letters(word):
+    text_count = {}  # Đổi tên biến count thành text_count hoặc tên khác phù hợp
+    word = word.lower()
+    for char in word:  # Sử dụng char để duyệt từng ký tự trong từ
+        if char.isalpha():  # Kiểm tra xem char có phải là chữ cái không
+            if char in text_count:
+                text_count[char] += 1
+            else:
+                text_count[char] = 1
 
-for element in num_list:
-    sub_list.append(element)
-    if len(sub_list) == k:
-        result.append(max(sub_list))
-        del sub_list[0]
+    return text_count
 
+
+# Ví dụ sử dụng
+word = "data"
+result = count_letters(word)
 print(result)
